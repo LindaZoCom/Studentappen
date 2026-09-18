@@ -1,24 +1,31 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args){
 
-        Student student = new Student("Amina", 25);
-        Student secondStudent = new Student("Leo", 31);
+        ArrayList<Student> students = new ArrayList<>();
 
+        students.add(new Student("Amina", 25));
+        students.add(new Student("Leo", 17));
+        students.add(new Student("Samira", 31));
+        students.add(new Student ("Noah", 22));
 
-        student.printInfo();
-        secondStudent.printInfo();
+        System.out.println("Antal studenter: " + students.size());
 
-        System.out.println("\nFörsta studenten heter: " + student.getName());
-        System.out.println("Första studentens åldens är: " + student.getAge());
+        System.out.println("\n===Alla studenter===");
 
-        System.out.println("\nUrsprunglig ålder: " + student.getAge());
+        for (Student student : students) {
+            System.out.println(student);
+        }
 
-        student.setAge(26);
+        System.out.println("\n===Myndiga studenter===");
 
-        System.out.println("Efter giltig ändring: " + student.getAge());
+        for(Student student : students) {
+            if(student.isAdult()) {
+                System.out.println(student);
+            }
+        }
 
-        student.setAge(-5);
-
-        System.out.println("Efter ogiltig ändring; " + student.getAge());
+        }
     }
-}
+

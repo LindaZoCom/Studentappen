@@ -1,6 +1,7 @@
 import java.sql.SQLOutput;
 
 public class Student {
+    private static final int ADULT_AGE= 18;
     private String name;
     private int age;
 
@@ -20,9 +21,17 @@ public class Student {
             this.age = age;
         }
     }
-
-
-    public void printInfo() {
-        System.out.println(name + " är " + age + " år.");
+    @Override
+    public String toString() {
+        return name + ", " + age + " år";
     }
+
+    public boolean isAdult() {
+        return age >=ADULT_AGE;
+    }
+
+
+//    public void printInfo() {
+//        System.out.println(name + " är " + age + " år.");
+//    }
 }
